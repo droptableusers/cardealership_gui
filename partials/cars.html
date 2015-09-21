@@ -1,0 +1,36 @@
+<div>
+</div>
+ <table class="table cartable">
+  <tr>
+    <td class="col-md-8">
+<a ui-sref="newCar" class="btn-primary btn-lg nodecoration">Add New Car</a>
+<a ui-sref="batchUpload" class="btn-primary btn-lg nodecoration">Batch upload car json</a>
+    </td>
+    <td>
+  <label for="query" class="col-sm-3 control-label">Search</label>
+  <div class="col-sm-9">
+    <input type="text" ng-model="query" ng-change="searchCars()" class="form-control" id="query" placeholder="Query"/>
+  </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td><h3>Search results for {{query}}*, a total of {{cars.totalHits}}</h3></td>
+    <td>
+   </td>
+  </tr>
+  <tr ng-repeat="car in cars.hits">
+    <td>{{car.brand}} {{car.model}} {{car.engineSize}} {{car.fuelType}}</td>
+    <td>
+      <a class="btn btn-primary" ui-sref="viewCar({id:car.id})">View</a>
+      <a class="btn btn-danger"  ng-click="deleteCar(car)">Delete</a>
+    </td>
+  </tr>
+</table>
+  <pagination 
+      ng-model="currentPage"
+      total-items="totalHits"
+      max-size="7"
+      boundary-links="true">
+  </pagination>
+
