@@ -1,5 +1,5 @@
 
-var api = "http://localhost:8080";
+var api = "http://localhost:14321";
 var authToken = 'Basic YWRhbTpzZWNyZXQ=';
 angular.module('carApp.services', []).factory('Car', function($resource) {
   return $resource(api + '/cars/:id', 

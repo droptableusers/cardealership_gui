@@ -48,7 +48,7 @@ angular.module('carApp.controllers', []).controller('CarListController', functio
   $scope.loadCar(); 
 }).controller('CarBatchUploadController', function($scope, $http, $state) {
   $scope.uploadFile = function(files) {
-    var api = "http://localhost:8080/cars/batch";
+    var api = "http://localhost:14321/cars/batch";
     var authToken = 'Basic YWRhbTpzZWNyZXQ=';
     var fd = new FormData();
     fd.append("file", files[0]);
